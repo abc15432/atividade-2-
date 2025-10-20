@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Foco Rápido",
+  "version": "1.0.0",
+  "description": "Ajuda a fechar distrações e destacar links úteis.",
+  "action": {
+    "default_title": "Foco Rápido",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://example.com/*"],
+      "js": ["src/content.js"], 
+      "run_at": "document_idle"
+    }
+  ]
+}
